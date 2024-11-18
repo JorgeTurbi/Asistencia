@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <!-- Logo -->
+    <ion-img src="assets/logo.png" class="logo"></ion-img>
+
+    <!-- Formulario de Login -->
+    <ion-card>
+      <ion-card-content>
+        <form (submit)="onLogin()" [formGroup]="forma">
+          <!-- Input de Correo -->
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" formControlName="username" name="username" required></ion-input>
+          </ion-item>
+
+          <!-- Input de Contraseña -->
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password" name="password" required></ion-input>
+          </ion-item>
+
+          <!-- Botón de Login -->
+          <ion-button expand="block" type="submit" class="login-button" [disabled]="!forma.valid">
+            Iniciar Sesión
+          </ion-button>
+        </form>
+
+        <!-- Enlace para Recuperar Contraseña -->
+        <div class="forgot-password">
+          <a href="#" (click)="onForgotPassword()">¿Olvidaste tu contraseña?</a>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
